@@ -1,0 +1,10 @@
+#!/bin/bash
+# set MAILRELAY and SMSEMAIL in .bashrc
+#
+# typical use:
+# some long running task && mailme "it worked" || mailme "it failed"
+#
+
+TEXT=${1:hi}
+
+ssh -q "$MAILRELAY" "echo '' | mail -s '$TEXT' '$SMSEMAIL'"
